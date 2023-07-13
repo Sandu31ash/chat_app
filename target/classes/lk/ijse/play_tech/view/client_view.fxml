@@ -35,7 +35,7 @@
             <VBox fx:id="vBox" prefHeight="206.0" prefWidth="451.0" />
          </content>
       </ScrollPane>
-      <Label fx:id="lblName" alignment="CENTER" layoutX="57.0" layoutY="27.0" prefHeight="30.0" prefWidth="116.0" text="Label" textFill="#ab0238">
+      <Label fx:id="lblName" alignment="CENTER" layoutX="129.0" layoutY="29.0" prefHeight="30.0" prefWidth="116.0" textFill="#ab0238">
          <font>
             <Font name="Lucida Handwriting Italic" size="18.0" />
          </font>
@@ -44,5 +44,6 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></ImageView>
+      <ImageView fx:id="picUser" fitHeight="55.0" fitWidth="55.0" layoutX="69.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

@@ -35,7 +35,9 @@ public class AccountController {
     @FXML
     TextField txtUsername;
     @FXML
-    private ImageView proPic;
+    ImageView proPic;
+    @FXML
+    Button btnPic;
 
 
     UserBO userBO = (UserBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.USER);
@@ -80,11 +82,16 @@ public class AccountController {
         stage.show();*/
     }
 
-    public void txtUserNameOnAction(ActionEvent actionEvent) {
-        btnCreate.requestFocus();
+    public void txtUserNameOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+
+        btnPic.requestFocus();
+
+        String userName = txtUsername.getText();
+
+        //btnCreate.requestFocus();
     }
 
-    public void btnPicOnAction(ActionEvent actionEvent) {
+    public void btnPicOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
         String userName = txtUsername.getText();
         FileChooser fileChooser = new FileChooser();
         File file = fileChooser.showOpenDialog(new Stage());
@@ -104,6 +111,13 @@ public class AccountController {
                     if (resultSet.next()) {
                         Image image = new Image(resultSet.getBinaryStream("pic"));
                         proPic.setImage(image);
+                        /*ResultSet resultSet1;
+                        //resulStet = UserModel.getImage(userName);
+                        resultSet1 = userBO.getImage(userName);
+                        Image image = null;
+                        image = new Image(resultSet1.getBinaryStream("pic"));
+                        proPic.setImage(image);
+                        proPic.setPreserveRatio(false);*/
                     }
                 }
             } catch (SQLException | IOException e) {
@@ -112,5 +126,14 @@ public class AccountController {
                 e.printStackTrace();
             }
         }
+
+        ResultSet resultSet;
+        resultSet = userBO.getImage(userName);
+        Image image = null;
+        image = new Image(resultSet.getBinaryStream("pic"));
+        proPic.setImage(image);
+        proPic.setPreserveRatio(false);
+
+        txtUsername.requestFocus();
     }
 }

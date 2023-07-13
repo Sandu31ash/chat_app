@@ -20,7 +20,7 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <TextField fx:id="txtUser" alignment="CENTER" blendMode="COLOR_BURN" cache="true" layoutX="337.0" layoutY="188.0" onAction="#txtUserOnAction" prefHeight="25.0" prefWidth="172.0" promptText="Type username here...">
+      <TextField fx:id="txtUser" alignment="CENTER" blendMode="COLOR_BURN" cache="true" layoutX="331.0" layoutY="200.0" onAction="#txtUserOnAction" prefHeight="25.0" prefWidth="172.0" promptText="Type username here...">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -38,5 +38,6 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
+      <ImageView fx:id="proPic" fitHeight="77.0" fitWidth="80.0" layoutX="383.0" layoutY="101.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

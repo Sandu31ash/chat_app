@@ -9,6 +9,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -32,6 +34,9 @@ public class LoginFormController {
 
     @FXML
     private TextField txtUser;
+
+    @FXML
+    private ImageView proPic;
 
     UserBO userBO = (UserBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.USER);
 
@@ -121,7 +126,17 @@ public class LoginFormController {
 
     }
 
-    public void txtUserOnAction(ActionEvent actionEvent) {
+    public void txtUserOnAction(ActionEvent actionEvent) throws SQLException, ClassNotFoundException {
+
+        String username = txtUser.getText();
+
+        ResultSet resultSet;
+        resultSet = userBO.getImage(username);
+        Image image = null;
+        image = new Image(resultSet.getBinaryStream("pic"));
+        proPic.setImage(image);
+        proPic.setPreserveRatio(false);
+
         btnLogin.requestFocus();
     }
 }

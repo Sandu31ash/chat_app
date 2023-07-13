@@ -40,11 +40,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <ImageView fx:id="proPic" fitHeight="60.0" fitWidth="62.0" layoutX="392.0" layoutY="112.0" pickOnBounds="true" preserveRatio="true" />
       <Button fx:id="btnPic" blendMode="MULTIPLY" layoutX="430.0" layoutY="240.0" mnemonicParsing="false" onAction="#btnPicOnAction" prefHeight="25.0" prefWidth="30.0">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <ImageView fx:id="proPic" fitHeight="76.0" fitWidth="76.0" layoutX="386.0" layoutY="106.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

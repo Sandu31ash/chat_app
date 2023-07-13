@@ -20,13 +20,20 @@ import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import lk.ijse.play_tech.bo.BOFactory;
+import lk.ijse.play_tech.bo.custom.UserBO;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Optional;
 
 public class ClientController extends Thread {
+
+    UserBO userBO = (UserBO) BOFactory.getBOFactory().getBO(BOFactory.BOTypes.USER);
+
     @FXML
     private Button btnSend;
 
@@ -38,6 +45,9 @@ public class ClientController extends Thread {
 
     @FXML
     private VBox vBox;
+
+    @FXML
+    private ImageView picUser;
 
     BufferedReader reader;
 
@@ -57,9 +67,20 @@ public class ClientController extends Thread {
 
     String message = "";
 
-    public void initialize() throws IOException {
+    private void getImage(String userName) throws SQLException, ClassNotFoundException {
+        ResultSet resultSet = null;
+        //resultSet = UserModel.getImage(userName);
+        resultSet = userBO.getImage(userName);
+        Image image = null;
+        image = new Image(resultSet.getBinaryStream("pic"));
+        picUser.setImage(image);
+        picUser.setPreserveRatio(false);
+    }
+
+    public void initialize() throws IOException, SQLException, ClassNotFoundException {
         String userName = LoginFormController.userName;
         lblName.setText(userName);
+        getImage(userName);
         try {
             socket = new Socket("localhost", 6000);
             //System.out.println("Socket is connected with the server!");
