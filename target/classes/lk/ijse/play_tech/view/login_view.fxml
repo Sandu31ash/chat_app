@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.play_tech.controller.LoginFormController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0">
+         <image>
+            <Image url="@../image/Login_UI.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnLogin" blendMode="DARKEN" layoutX="374.0" layoutY="259.0" mnemonicParsing="false" onAction="#btnLoginOnAction" prefHeight="29.0" prefWidth="98.0">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <TextField fx:id="txtUser" alignment="CENTER" blendMode="COLOR_BURN" cache="true" layoutX="337.0" layoutY="188.0" onAction="#txtUserOnAction" prefHeight="25.0" prefWidth="172.0" promptText="Type username here...">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+         <font>
+            <Font name="System Bold Italic" size="14.0" />
+         </font>
+      </TextField>
+      <Label layoutX="331.0" layoutY="301.0" prefHeight="25.0" prefWidth="116.0" text="Haven't an account?" textFill="#d0d0d0">
+         <font>
+            <Font name="Gadugi" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="449.0" layoutY="305.0" text="Create account" textFill="#0078ff" />
+      <Button fx:id="btnCreateAcc" blendMode="DARKEN" layoutX="440.0" layoutY="301.0" mnemonicParsing="false" onAction="#btnCreateAccOnAction" prefHeight="25.0" prefWidth="98.0" textFill="#0099ff">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+   </children>
+</AnchorPane>
